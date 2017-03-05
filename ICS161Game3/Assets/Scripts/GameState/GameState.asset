@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dea8543d03c93041ab251fc0a093492, type: 3}
+  m_Name: GameState
+  m_EditorClassIdentifier: 
+  characters:
+  - {fileID: 1000013845705504, guid: 14c259d74db3b6c459aacf48ff0e4f74, type: 2}
+  - {fileID: 1000013980108120, guid: 6c932bfac66a295479ab336929024faf, type: 2}
+  player1health: 100
+  player2health: 100
