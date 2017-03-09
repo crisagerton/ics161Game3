@@ -144,18 +144,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94000e0c94688874e83df809551571df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playernumber: 0
+  playernumber: 1
   atkobj: {fileID: 1000013814519728, guid: c3aa34d01d62cd748a0f16dcc979f4be, type: 2}
   atkobj2: {fileID: 1000012937506656, guid: 9abde918ece152b44b67e6d6b175ad9e, type: 2}
   left: a
   right: d
   jump: w
   attack: f
-  gameState: {fileID: 0}
+  enemy: attack2
+  gameState: {fileID: 11400000, guid: c794afdb9b426684ba96e38a453aa2a0, type: 2}
   maxSpeed: 2
   maxJumpSpeed: 7
   speed: 50
   jumpPower: 300
+  range: 1
   grounded: 0
 --- !u!212 &212000010120062870
 SpriteRenderer:

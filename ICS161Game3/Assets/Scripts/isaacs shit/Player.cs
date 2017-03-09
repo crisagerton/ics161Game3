@@ -11,6 +11,7 @@ public class Player : MonoBehaviour {
 	public string right;
 	public string jump;
 	public string attack;
+	public string enemy;
 	//public Text lives;
     //public int life;
     public GameState gameState;
@@ -19,6 +20,7 @@ public class Player : MonoBehaviour {
 	public float maxJumpSpeed = 7;
 	public float speed = 50f;
 	public float jumpPower = 150f;
+	public float range = 1f;
 
 	public bool grounded;
 	private bool attacking;
@@ -41,18 +43,20 @@ public class Player : MonoBehaviour {
 
 		if (Input.GetKey (left)) 
 		{
-			transform.localScale = new Vector3 (-.25f, .2f, 2f);
+			transform.localScale = new Vector3 (-.25f, transform.localScale.y, 
+				transform.localScale.z);
 			direction = -1.0f;
 		}
 
 		if (Input.GetKey (right)) 
 		{
 			direction = 1.0f;
-			transform.localScale = new Vector3 (.25f, .2f, 2f);
+			transform.localScale = new Vector3 (.25f, transform.localScale.y, 
+				transform.localScale.z);
 		}
 
 		if (Input.GetKey (attack) && !attacking) {
-			Vector3 spawnlocat = new Vector3 (this.transform.position.x + direction,
+			Vector3 spawnlocat = new Vector3 (this.transform.position.x + (direction * range),
 				                     this.transform.position.y);
 			if (direction > 0) {
 				Instantiate (atkobj, spawnlocat, this.transform.rotation);
@@ -123,7 +127,7 @@ public class Player : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if(col.CompareTag("attack")){
+		if(col.CompareTag(enemy)){
             //life -= 1;
             gameState.decreasePlayerHealth(playernumber, 10);
             if (gameState.getPlayerHealth(playernumber) <= 0)

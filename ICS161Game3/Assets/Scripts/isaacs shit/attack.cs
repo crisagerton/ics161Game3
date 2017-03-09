@@ -3,6 +3,7 @@ using System.Collections;
 
 public class attack : MonoBehaviour {
 
+	public int atkspeed;
 	private int count;
 
 	void Start() {
@@ -11,7 +12,7 @@ public class attack : MonoBehaviour {
 
 	void Update () {
 		++count;
-		if (count > 20) {
+		if (count > atkspeed) {
 			GameObject.Destroy (this.gameObject);
 		}
 	}
