@@ -14,5 +14,5 @@ MonoBehaviour:
   characters:
   - {fileID: 1000013845705504, guid: 14c259d74db3b6c459aacf48ff0e4f74, type: 2}
   - {fileID: 1000013980108120, guid: 6c932bfac66a295479ab336929024faf, type: 2}
-  player1health: 100
-  player2health: 100
+  player1health: 80
+  player2health: 0

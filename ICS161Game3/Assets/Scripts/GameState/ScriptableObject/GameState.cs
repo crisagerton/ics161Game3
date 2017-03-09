@@ -45,12 +45,9 @@ public class GameState : ScriptableObject {
         return gamewinner;
     }
 
-    public void setWinner(int loser)
+    public void setWinner(int winner)
     {
-        if (loser == 1)
-            gamewinner = 2;
-        if (loser == 2)
-            gamewinner = 1;
+            gamewinner = winner;
     }
 
     public void resetPlayerHealth()

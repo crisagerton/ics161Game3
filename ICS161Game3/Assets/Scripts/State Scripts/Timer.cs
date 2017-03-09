@@ -12,10 +12,16 @@ public class Timer : MonoBehaviour {
 
     private int sec;
     private int min;
+    private int originalTimerAmount;
 
-	// Use this for initialization
-	void Start () {
-        timer = timer * 60;
+    public void Start()
+    {
+        originalTimerAmount = 1;
+    }
+
+	public void startTimer () {
+        StopAllCoroutines();
+        timer = originalTimerAmount * 60 + 1;
         min = Mathf.FloorToInt(timer / 60F);
         sec = Mathf.FloorToInt(timer - min * 60);
         string niceTime = string.Format("{0:00}:{1:00}", min, sec);
@@ -27,9 +33,9 @@ public class Timer : MonoBehaviour {
     private void Update()
     {
         if (gameState.IsGameOver())
-        {
             StopAllCoroutines();
-        }
+        if (timer <= 0)
+            gameState.setWinner(4);
     }
 	
     IEnumerator Countdown()
