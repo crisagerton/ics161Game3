@@ -13,6 +13,7 @@ public class Timer : MonoBehaviour {
     private int sec;
     private int min;
     private int originalTimerAmount;
+    private bool paused;
 
     public void Start()
     {
@@ -30,6 +31,11 @@ public class Timer : MonoBehaviour {
         StartCoroutine(Countdown());
     }
 
+    public void pauseTimer(bool pausetimer)
+    {
+        paused = pausetimer;
+    }
+
     private void Update()
     {
         if (gameState.IsGameOver())
@@ -42,13 +48,17 @@ public class Timer : MonoBehaviour {
     {
         while (min >= 0 && sec >= 0)
         {
-            timer -= 1;
-            min = Mathf.FloorToInt(timer / 60F);
-            sec = Mathf.FloorToInt(timer - min * 60);
-            string niceTime = string.Format("{0:00}:{1:00}", min, sec);
+            if (!paused)
+            {
+                timer -= 1;
+                min = Mathf.FloorToInt(timer / 60F);
+                sec = Mathf.FloorToInt(timer - min * 60);
+                string niceTime = string.Format("{0:00}:{1:00}", min, sec);
 
-            timerText.text = displayText + niceTime;
-            yield return new WaitForSeconds(1f);
+                timerText.text = displayText + niceTime;
+                yield return new WaitForSeconds(1f);
+            }
+            yield return null;
         }
     }
 }

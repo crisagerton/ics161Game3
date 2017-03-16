@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
     public Text winnerText;
     public GameObject endScreen;
+    public GameObject pauseScreen;
     public GameState gameState;
     public Timer gameTimer;
     public GameObject player1;
@@ -26,7 +27,10 @@ public class GameManager : MonoBehaviour {
         checkWinConditions();
         if (gameState.getWinner() != 0)
             setEndState();
-        //Debug.Log(gameState.getWinner());
+        if (Input.GetKeyDown("escape") && !titleScreenActive)
+        {
+            Paused();
+        }
     }
 
     public void setStartConditions()
@@ -128,6 +132,22 @@ public class GameManager : MonoBehaviour {
             player1.SetActive(false);
         if (winner == 3)
             EnablePlayers(false);
+    }
+
+    public void Paused()
+    {
+        pauseScreen.SetActive(true);
+        player1.SetActive(false);
+        player2.SetActive(false);
+        gameTimer.pauseTimer(true);
+    }
+
+    public void Unpaused()
+    {
+        pauseScreen.SetActive(false);
+        player1.SetActive(true);
+        player2.SetActive(true);
+        gameTimer.pauseTimer(false);
     }
 
 }
