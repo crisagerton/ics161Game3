@@ -18,6 +18,7 @@ public class playerMove : MonoBehaviour {
 
 	public bool grounded;
 	private int count;
+	private float scale;
 
 	private Rigidbody2D rb2d;
 	private Player player;
@@ -26,27 +27,28 @@ public class playerMove : MonoBehaviour {
 		rb2d = gameObject.GetComponent<Rigidbody2D> ();
 		player = gameObject.GetComponent<Player> ();
 		direction = 1.0f;
+		scale = transform.localScale.x;
 	}
 
 	void Update () {
 		//getting input & jumping
-		if (Input.GetKeyDown(jumpKey) && jumps < jumpLimit && !player.attacking) {
+		if (Input.GetKeyDown(jumpKey) && jumps <= jumpLimit && !player.attacking) {
+			jumps++;
 			rb2d.AddForce (Vector2.up * jumpPower);
-			jumps += 1;
 		}
 
-		if (Input.GetKey (leftKey)) 
-		{
-			transform.localScale = new Vector3 (-.25f, transform.localScale.y, 
-				transform.localScale.z);
-			direction = -1.0f;
-		}
+		if (!player.attacking) {
+			if (Input.GetKey (leftKey)) {
+				transform.localScale = new Vector3 (-scale, 
+					transform.localScale.y, transform.localScale.z);
+				direction = -1.0f;
+			}
 
-		if (Input.GetKey (rightKey)) 
-		{
-			transform.localScale = new Vector3 (.25f, transform.localScale.y, 
-				transform.localScale.z);
-			direction = 1.0f;
+			if (Input.GetKey (rightKey)) {
+				transform.localScale = new Vector3 (scale, 
+					transform.localScale.y, transform.localScale.z);
+				direction = 1.0f;
+			}
 		}
 	}
 

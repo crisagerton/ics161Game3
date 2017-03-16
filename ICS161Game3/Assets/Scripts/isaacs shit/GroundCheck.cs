@@ -13,6 +13,7 @@ public class GroundCheck : MonoBehaviour {
 	void OnTriggerExit2D(Collider2D col)
 	{
 		player.grounded = false;
+		player.jumps = 1;
 	}
 
 	void OnTriggerStay2D(Collider2D col)

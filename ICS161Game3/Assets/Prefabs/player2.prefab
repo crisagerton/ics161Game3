@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114285788821140616}
   - component: {fileID: 114335612197793430}
   - component: {fileID: 114141304220703408}
+  - component: {fileID: 95246141131131688}
   m_Layer: 0
   m_Name: player2
   m_TagString: player2
@@ -56,8 +57,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1945882553468678}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.43, y: 1.4866713, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.2, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children:
   - {fileID: 4429466949752160}
   m_Father: {fileID: 0}
@@ -107,7 +108,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: -1.25}
+  m_Offset: {x: 0, y: -2}
   serializedVersion: 2
   m_Size: {x: 1.25, y: 0.5}
 --- !u!61 &61350719213398540
@@ -121,9 +122,26 @@ BoxCollider2D:
   m_Material: {fileID: 6200000, guid: b03a553a15400bd49883a3f9ee5eaac9, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.25, y: -0.25}
   serializedVersion: 2
-  m_Size: {x: 1.2, y: 2.4}
+  m_Size: {x: 1.5, y: 3.75}
+--- !u!95 &95246141131131688
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1945882553468678}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7c350f5b1b75ac34ea01f195c17497b8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114141304220703408
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -139,8 +157,8 @@ MonoBehaviour:
   leftAtk: {fileID: 1412234967222808, guid: 2fcb9b378fa9b0a40820d39e1134579e, type: 2}
   atkKey: ;
   enemy: attack
-  atkRange: 0.5
-  atkSpd: 10
+  atkRange: 0.35
+  atkSpd: 45
 --- !u!114 &114285788821140616
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -156,6 +174,7 @@ MonoBehaviour:
   enemy: attack
   gameState: {fileID: 11400000, guid: c794afdb9b426684ba96e38a453aa2a0, type: 2}
   attacking: 0
+  hurt: 0
 --- !u!114 &114335612197793430
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -175,7 +194,7 @@ MonoBehaviour:
   maxJumpSpeed: 12
   speed: 180
   jumpPower: 250
-  jumpLimit: 2
+  jumpLimit: 1
   jumps: 0
   grounded: 0
 --- !u!114 &114641810812449480
@@ -220,7 +239,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 208332c3352d4e54dae3b26d74548df2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e95242f2fcce5fc4888d123dbe5192fd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

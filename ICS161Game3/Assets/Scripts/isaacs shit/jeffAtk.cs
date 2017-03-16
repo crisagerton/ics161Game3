@@ -40,6 +40,7 @@ public class jeffAtk : MonoBehaviour {
 		if (Input.GetKey (atkKey) && !player.attacking) {
 			charging = true;
 			player.attacking = true;
+			anim.SetBool ("attacking", player.attacking);
 		}
 		if (charging) {
 			chrgTimer++;
@@ -48,12 +49,15 @@ public class jeffAtk : MonoBehaviour {
 		//the actual attack
 		if (chrgTimer > atkChrg){
 			charging = false; chrgTimer = 0;
-			Vector3 spawnlocat = new Vector3 (this.transform.position.x + (move.direction * atkRange),
-				this.transform.position.y);
-			if (move.direction > 0) {
-				Instantiate (rightAtk, spawnlocat, this.transform.rotation);
-			} else if (move.direction < 0) {
-				Instantiate (leftAtk, spawnlocat, this.transform.rotation);
+
+			if (player.attacking) {
+				Vector3 spawnlocat = new Vector3 (this.transform.position.x + (move.direction * atkRange),
+					                    this.transform.position.y, .01f);
+				if (move.direction > 0) {
+					Instantiate (rightAtk, spawnlocat, this.transform.rotation);
+				} else if (move.direction < 0) {
+					Instantiate (leftAtk, spawnlocat, this.transform.rotation);
+				}
 			}
 		}
 
@@ -64,6 +68,7 @@ public class jeffAtk : MonoBehaviour {
 		if (atkTimer > (atkSpd + atkChrg)) {
 			player.attacking = false; atkTimer = 0;
 		}
+		anim.SetBool ("attacking", player.attacking);
 	}
 
 }

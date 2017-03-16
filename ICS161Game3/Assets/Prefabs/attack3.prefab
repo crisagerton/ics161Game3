@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212862124619485986}
   - component: {fileID: 61957311395145566}
   - component: {fileID: 114836894531778920}
+  - component: {fileID: 114304186064970614}
   m_Layer: 0
   m_Name: attack3
   m_TagString: attack2
@@ -36,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1083729352947082}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.3356543, y: -0.36950588, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalPosition: {x: 0.25, y: 0, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -56,6 +57,17 @@ BoxCollider2D:
   m_Offset: {x: 0.15, y: -0.1}
   serializedVersion: 2
   m_Size: {x: 1.4, y: 0.4}
+--- !u!114 &114304186064970614
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1083729352947082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 969efcec9000fbc468d725946f213efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114836894531778920
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -67,14 +79,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9b229a220c4dd4f9edb1ee37a71144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atkspeed: 30
+  atkspeed: 45
 --- !u!212 &212862124619485986
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1083729352947082}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_MotionVectors: 1
