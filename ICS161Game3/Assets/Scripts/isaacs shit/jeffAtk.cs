@@ -14,6 +14,7 @@ public class jeffAtk : MonoBehaviour {
 	public float atkRange = 1f;
 	public int atkSpd = 10;
 	public int atkChrg = 10;
+	public AudioClip atksound;
 
 	private int atkTimer;
 	private int chrgTimer;
@@ -22,12 +23,14 @@ public class jeffAtk : MonoBehaviour {
 	private Rigidbody2D rb2d;
 	private Player player;
 	private Animator anim;
+	private AudioSource source;
 
 	void Start () {
 		anim = gameObject.GetComponent<Animator> ();
 		move = gameObject.GetComponentInParent<playerMove> ();
 		rb2d = gameObject.GetComponent<Rigidbody2D> ();
 		player = gameObject.GetComponent<Player> ();
+		source = gameObject.GetComponent<AudioSource> ();
 		player.attacking = false;
 		charging = false;
 	}
@@ -59,6 +62,8 @@ public class jeffAtk : MonoBehaviour {
 					Instantiate (leftAtk, spawnlocat, this.transform.rotation);
 				}
 			}
+			source.clip = atksound;
+			source.Play ();
 		}
 
 		//post attack delay

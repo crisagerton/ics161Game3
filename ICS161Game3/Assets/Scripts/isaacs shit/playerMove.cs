@@ -15,15 +15,21 @@ public class playerMove : MonoBehaviour {
 	public float jumpPower = 150f;
 	public int jumpLimit = 1;
 	public int jumps = 0;
+	public AudioClip jmpsound;
 
 	public bool grounded;
+	private bool moving;
 	private int count;
 	private float scale;
 
 	private Rigidbody2D rb2d;
 	private Player player;
+	private Animator anim;
+	private AudioSource source;
 
 	void Start () {
+		source = gameObject.GetComponent<AudioSource> ();
+		anim = gameObject.GetComponent<Animator> ();
 		rb2d = gameObject.GetComponent<Rigidbody2D> ();
 		player = gameObject.GetComponent<Player> ();
 		direction = 1.0f;
@@ -32,9 +38,14 @@ public class playerMove : MonoBehaviour {
 
 	void Update () {
 		//getting input & jumping
+		anim.SetBool("grounded", grounded);
+
 		if (Input.GetKeyDown(jumpKey) && jumps <= jumpLimit && !player.attacking) {
 			jumps++;
 			rb2d.AddForce (Vector2.up * jumpPower);
+
+			source.clip = jmpsound;
+			source.Play ();
 		}
 
 		if (!player.attacking) {
@@ -53,7 +64,6 @@ public class playerMove : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-
 		//friction
 		Vector3 easeVelocity = rb2d.velocity;
 		easeVelocity.y = rb2d.velocity.y;
@@ -66,13 +76,18 @@ public class playerMove : MonoBehaviour {
 		}
 
 		//setting the direction
+		anim.SetBool("moving", moving);
+
 		float h;
 
 		if (Input.GetKey (rightKey)) {
+			moving = true;
 			h = 1.0f;
 		} else if (Input.GetKey (leftKey)) {
+			moving = true;
 			h = -1.0f;
 		} else {
+			moving = false;
 			h = 0.0f;
 		}
 			

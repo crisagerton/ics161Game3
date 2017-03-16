@@ -11,6 +11,7 @@ public class andrewAtk : MonoBehaviour {
 	public string atkKey;
 	public string enemy;
 
+	public AudioClip atksound;
 	public float atkRange = 1f;
 	public int atkSpd = 10;
 
@@ -19,8 +20,10 @@ public class andrewAtk : MonoBehaviour {
 	private Rigidbody2D rb2d;
 	private Player player;
 	private Animator anim;
+	private AudioSource source;
 
 	void Start () {
+		source = gameObject.GetComponent<AudioSource> ();
 		anim = gameObject.GetComponent<Animator> ();
 		move = gameObject.GetComponent<playerMove> ();
 		rb2d = gameObject.GetComponent<Rigidbody2D> ();
@@ -40,6 +43,9 @@ public class andrewAtk : MonoBehaviour {
 			} else if (move.direction < 0) {
 				Instantiate (leftAtk, spawnlocat, this.transform.rotation);
 			}
+
+			source.clip = atksound;
+			source.Play ();
 		}
 
 		if (player.attacking) {

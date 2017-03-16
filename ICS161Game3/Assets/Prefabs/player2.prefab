@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114335612197793430}
   - component: {fileID: 114141304220703408}
   - component: {fileID: 95246141131131688}
+  - component: {fileID: 82218050444477872}
   m_Layer: 0
   m_Name: player2
   m_TagString: player2
@@ -108,7 +109,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: -2}
+  m_Offset: {x: -0.15, y: -2}
   serializedVersion: 2
   m_Size: {x: 1.25, y: 0.5}
 --- !u!61 &61350719213398540
@@ -125,6 +126,86 @@ BoxCollider2D:
   m_Offset: {x: -0.25, y: -0.25}
   serializedVersion: 2
   m_Size: {x: 1.5, y: 3.75}
+--- !u!82 &82218050444477872
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1945882553468678}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!95 &95246141131131688
 Animator:
   serializedVersion: 3
@@ -157,6 +238,7 @@ MonoBehaviour:
   leftAtk: {fileID: 1412234967222808, guid: 2fcb9b378fa9b0a40820d39e1134579e, type: 2}
   atkKey: ;
   enemy: attack
+  atksound: {fileID: 8300000, guid: 1623eabee1ad98e4aa4d88073e3ab996, type: 3}
   atkRange: 0.35
   atkSpd: 45
 --- !u!114 &114285788821140616
@@ -196,6 +278,7 @@ MonoBehaviour:
   jumpPower: 250
   jumpLimit: 1
   jumps: 0
+  jmpsound: {fileID: 8300000, guid: e069f5a187ee4c04fb3ff2020e61ff71, type: 3}
   grounded: 0
 --- !u!114 &114641810812449480
 MonoBehaviour:
