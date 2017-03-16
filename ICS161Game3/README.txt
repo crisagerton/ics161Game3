@@ -14,8 +14,10 @@ Player Experience:
 <FEELING THE DESIGNER WANTS THE PLAYER TO EXPERIENCE 1-3 Sentences>
 
 Code References:
-1. {ScriptName} | Lines {line numbers where code is located} | {link to source}
-2. {ScriptName} | Lines {line numbers where code is located} | {link to source}
+1. Play Music | Lines 1-10, 16-62, 66-71 | https://www.assetstore.unity3d.com/en/#!/content/40465
+2. Quit Application | Lines 1-20 |  https://www.assetstore.unity3d.com/en/#!/content/40465
+3. ShowPanels | Lines 1-8, 14-35 |  https://www.assetstore.unity3d.com/en/#!/content/40465
+4. AssetName/Folder | Lines {line numbers where code is located} | {link to source}
 
 Asset References:
 1. {AssetName or Folder} | {link to source}

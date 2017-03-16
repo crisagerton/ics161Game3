@@ -68,18 +68,4 @@ public class PlayMusic : MonoBehaviour {
 		musicSource.Play ();
         Debug.Log("sound should be changed to " + musicChoice);
 	}
-
-    ////Call this function to very quickly fade up the volume of master mixer
-    //public void FadeUp(float fadeTime)
-    //{
-    //    //call the TransitionTo function of the audioMixerSnapshot volumeUp;
-    //    volumeUp.TransitionTo(fadeTime);
-    //}
-
-    ////Call this function to fade the volume to silence over the length of fadeTime
-    //public void FadeDown(float fadeTime)
-    //{
-    //	//call the TransitionTo function of the audioMixerSnapshot volumeDown;
-    //	volumeDown.TransitionTo (fadeTime);
-    //}
 }

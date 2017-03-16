@@ -7,7 +7,6 @@ public class ShowPanels : MonoBehaviour {
 	public GameObject menuPanel;							//Store a reference to the Game Object MenuPanel 
 	public GameObject pausePanel;							//Store a reference to the Game Object PausePanel
     public GameObject instructionsPanel;
-    public GameObject characterSelectionPanel;
     public GameObject mechanicsPanel;
     public GameObject endGamePanel;
 
@@ -34,16 +33,6 @@ public class ShowPanels : MonoBehaviour {
 	{
 		pausePanel.SetActive (false);
 	}
-
-    public void ShowCharacterSelectionPanel()
-    {
-        characterSelectionPanel.SetActive(true);
-    }
-
-    public void HideCharacterSelectionPanel()
-    {
-        characterSelectionPanel.SetActive(false);
-    }
 
     public void ShowMechanicsPanel()
     {
