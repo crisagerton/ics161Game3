@@ -12,11 +12,13 @@ public class GameManager : MonoBehaviour {
     public GameObject player1;
     public GameObject player2;
 
-    private ShowPanels showPanels;
+    //private ShowPanels showPanels;
+    private PlayMusic playMusic;
+    private bool titleScreenActive = true;
 
     public void Start()
     {
-        //setStartConditions();
+        playMusic = GetComponent<PlayMusic>();
     }
 
     public void Update()
@@ -24,24 +26,30 @@ public class GameManager : MonoBehaviour {
         checkWinConditions();
         if (gameState.getWinner() != 0)
             setEndState();
-        Debug.Log(gameState.getWinner());
+        //Debug.Log(gameState.getWinner());
     }
 
     public void setStartConditions()
     {
+        playMusic.PlaySelectedMusic(1);
+        titleScreenActive = false;
         gameState.resetPlayerHealth();
         endScreen.SetActive(false);
         gameState.setWinner(0);
         gameTimer.startTimer();
-        player1.transform.position = new Vector3(-3, 0, 0);
-        player2.transform.position = new Vector3(3, 0, 0);
+        player1.transform.position = new Vector3(-4, 0, 0);
+        player2.transform.position = new Vector3(3.5f, 0, 0);
         EnablePlayers(true);
     }
 
     public void setEndState()
     {
-        setWinnerText(gameState.getWinner());
-        endScreen.SetActive(true);
+        if (!titleScreenActive)
+        {
+            setWinnerText(gameState.getWinner());
+            endScreen.SetActive(true);
+            playMusic.PlaySelectedMusic(2);
+        }
     }
 
     public void setWinnerText(int player)

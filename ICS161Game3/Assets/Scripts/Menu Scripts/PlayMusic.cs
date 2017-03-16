@@ -8,8 +8,9 @@ public class PlayMusic : MonoBehaviour {
 
 	public AudioClip titleMusic;					//Assign Audioclip for title music loop
 	public AudioClip mainMusic;						//Assign Audioclip for main 
-	public AudioMixerSnapshot volumeDown;			//Reference to Audio mixer snapshot in which the master volume of main mixer is turned down
-	public AudioMixerSnapshot volumeUp;				//Reference to Audio mixer snapshot in which the master volume of main mixer is turned up
+    public AudioClip victoryMusic;
+	//public AudioMixerSnapshot volumeDown;			//Reference to Audio mixer snapshot in which the master volume of main mixer is turned down
+	//public AudioMixerSnapshot volumeUp;				//Reference to Audio mixer snapshot in which the master volume of main mixer is turned up
 
 
 	private AudioSource musicSource;				//Reference to the AudioSource which plays music
@@ -38,8 +39,8 @@ public class PlayMusic : MonoBehaviour {
 				musicSource.clip = mainMusic;
 				break;
 		}
-		//Fade up the volume very quickly, over resetTime seconds (.01 by default)
-		FadeUp (resetTime);
+		////Fade up the volume very quickly, over resetTime seconds (.01 by default)
+		//FadeUp (resetTime);
 		//Play the assigned music clip in musicSource
 		musicSource.Play ();
 	}
@@ -59,22 +60,26 @@ public class PlayMusic : MonoBehaviour {
 		case 1:
 			musicSource.clip = mainMusic;
 			break;
+        case 2:
+            musicSource.clip = victoryMusic;
+            break;
 		}
 		//Play the selected clip
 		musicSource.Play ();
+        Debug.Log("sound should be changed to " + musicChoice);
 	}
 
-	//Call this function to very quickly fade up the volume of master mixer
-	public void FadeUp(float fadeTime)
-	{
-		//call the TransitionTo function of the audioMixerSnapshot volumeUp;
-		volumeUp.TransitionTo (fadeTime);
-	}
+    ////Call this function to very quickly fade up the volume of master mixer
+    //public void FadeUp(float fadeTime)
+    //{
+    //    //call the TransitionTo function of the audioMixerSnapshot volumeUp;
+    //    volumeUp.TransitionTo(fadeTime);
+    //}
 
-	//Call this function to fade the volume to silence over the length of fadeTime
-	public void FadeDown(float fadeTime)
-	{
-		//call the TransitionTo function of the audioMixerSnapshot volumeDown;
-		volumeDown.TransitionTo (fadeTime);
-	}
+    ////Call this function to fade the volume to silence over the length of fadeTime
+    //public void FadeDown(float fadeTime)
+    //{
+    //	//call the TransitionTo function of the audioMixerSnapshot volumeDown;
+    //	volumeDown.TransitionTo (fadeTime);
+    //}
 }
