@@ -8,6 +8,7 @@ TagManager:
   - player2
   - attack
   - attack2
+  - wall
   layers:
   - Default
   - TransparentFX

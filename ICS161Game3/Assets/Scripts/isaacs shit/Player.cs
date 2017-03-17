@@ -6,6 +6,7 @@ public class Player : MonoBehaviour {
 
     public int playernumber;
 	public string enemy;
+    public int damageTaken;
 
     public GameState gameState;
 
@@ -39,10 +40,9 @@ public class Player : MonoBehaviour {
 	{
 		if(col.CompareTag(enemy)){
 			hurt = true;
-            gameState.decreasePlayerHealth(playernumber, 10);
+            gameState.decreasePlayerHealth(playernumber, damageTaken);
             if (gameState.getPlayerHealth(playernumber) <= 0)
                 gameState.setWinner(playernumber);
-
         }
 	}
 }
